@@ -1,0 +1,47 @@
+Jarvis([Number or String])["length:  >6 && < 12 || > 39"]
+
+
+length
+:
+>6
+&&
+<12
+||
+>39
+
+
+parser('>6') => {
+    logic:none,
+    check:[">6"]
+}
+
+parser('>6 && <12') => {
+    logic:'&&'
+    check[parser(">6 && <12")]
+}
+
+parser('>6 && <12 || >39 && <45') => {
+    logic:'&&'
+    check[parser(">6 && <12 || >39"),parser("< 45")]
+}
+
+{
+    checkType: "length"
+    value: {
+        logic: '||'
+        check: [{
+            logic: '&&'
+            check: [{
+                logic: none,
+                check: ['>6']
+            }, {
+                logic: none,
+                check: ['<12']
+            }]
+        }, {
+
+            logic: none,
+            check: [">39"]
+        }]
+    }
+}
