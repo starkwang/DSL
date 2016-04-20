@@ -45,3 +45,25 @@ parser('>6 && <12 || >39 && <45') => {
         }]
     }
 }
+
+{
+    logic: '',
+    check: []
+}
+
+{
+    logic: '',
+    check: [undefined,{
+        logic: '',
+        check: []
+    }]
+}
+
+
+{
+    logic: '&&',
+    check:["!=12","!==13"]
+}
+
+
+

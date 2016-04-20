@@ -1,11 +1,17 @@
-export default function tokenizer(content) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = tokenizer;
+function tokenizer(content) {
     //结果数组
     var result = [];
 
     //特殊符号的集合
     var symbol = [':', '(', ')'];
 
-    //是否在字符串中，如果是的话，要保留换行、缩进、空格 
+    //是否在字符串中，如果是的话，要保留换行、缩进、空格
     var isInString = false;
 
     //当前的单词栈
@@ -41,7 +47,7 @@ export default function tokenizer(content) {
                 continue;
             }
             if (symbol.indexOf(t) != -1) {
-                clearStack()
+                clearStack();
                 result.push(t);
                 continue;
             }
@@ -88,13 +94,13 @@ export default function tokenizer(content) {
                     continue;
                 }
             }
-            if(t == '>'||t=='<'){
+            if (t == '>' || t == '<') {
                 clearStack();
-                if(content[i+1]=='='){
-                    result.push(t+'=');
+                if (content[i + 1] == '=') {
+                    result.push(t + '=');
                     i++;
                     continue;
-                }else{
+                } else {
                     result.push(t);
                     continue;
                 }
