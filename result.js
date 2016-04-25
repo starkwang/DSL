@@ -36,5 +36,3 @@ function doCheck(value, DSL) {
     console.log(eval(result));
     return eval(result);
 }
-
-doCheck(123, ">2&&>3&&!!!!(>=4&&>=100)&&===123");

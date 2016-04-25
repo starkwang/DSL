@@ -30,14 +30,10 @@ export default function check(object) {
 
 
 function doCheck(value, DSLarr) {
-    if (value == undefined) {
-        return false;
-    }
-    if (typeof value === 'number') {
-        var result = DSLarr.map(word => CMP_SYMBOL.indexOf(word) != -1 ? value + word : word).join('');
-    }
     if (typeof value === 'string') {
         var result = DSLarr.map(word => CMP_SYMBOL.indexOf(word) != -1 ? `"${value}"` + word : word).join('');
+    }else{
+        var result = DSLarr.map(word => CMP_SYMBOL.indexOf(word) != -1 ? value + word : word).join('');
     }
     console.log(eval(result));
     return eval(result);

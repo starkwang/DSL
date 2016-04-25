@@ -1,4 +1,9 @@
-Jarvis([Number or String])["length:  >6 && < 12 || > 39"]
+check("foo")["length:  >6 && < 12 || > 39"].start();
+
+check("foo")["length:  >6 && < 12 || > 39"].start(result => doSomething(result));
+check.map(["foo","abc"],item => item["length:  >6 && < 12 || > 39"]);
+
+check.all()
 
 
 length
